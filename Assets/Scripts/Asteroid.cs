@@ -44,6 +44,12 @@ public class Asteroid : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            
+            // Increase score via GameManager
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddScore(10);
+            }
         }
     }
 
