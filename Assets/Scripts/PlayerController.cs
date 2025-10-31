@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,7 +33,15 @@ public class PlayerController : MonoBehaviour
         AutoFire();
         ClampToScreen();
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("Player hit by asteroid!");
+        }
+    }
+
     void MoveTowardsMouse()
     {
         // Get mouse position in world space
