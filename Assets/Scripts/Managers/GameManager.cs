@@ -40,4 +40,10 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: " + score.ToString();
         }
     }
+    
+    public void GameOver()
+    {
+        // Load Game Over scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverScene");
+    }
 }
