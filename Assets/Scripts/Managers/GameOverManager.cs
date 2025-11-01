@@ -9,10 +9,7 @@ public class GameOverManager : MonoBehaviour
     private void Start()
     {
         // Display final score from GameManager
-        if (GameManager.Instance != null)
-        {
-            finalScoreText.text = "Final Score: " + GameManager.Instance.score.ToString();
-        }
+        finalScoreText.text = "Final Score: " + GameManager.Instance.score.ToString();
     }
 
     public void RetryGame()
