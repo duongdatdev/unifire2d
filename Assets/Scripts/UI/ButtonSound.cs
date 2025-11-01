@@ -2,25 +2,35 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
+[RequireComponent(typeof(AudioSource))]
 public class ButtonSound : MonoBehaviour
 {
     public AudioClip clickSound;
     private AudioSource audioSource;
     private Button button;
 
-    void Start()
+    void Awake()
     {
-        // Find or add AudioSource component
-        audioSource = FindObjectOfType<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D sound
         button = GetComponent<Button>();
 
-        // Add listener to button click
-        button.onClick.AddListener(PlayClickSound);
+        if (button != null)
+        {
+            button.onClick.AddListener(PlayClickSound);
+        }
     }
 
     void PlayClickSound()
     {
-        if (clickSound != null && audioSource != null)
-            audioSource.PlayOneShot(clickSound);
+        if (clickSound == null)
+        {
+            Debug.LogWarning("Click sound clip is not assigned!");
+            return;
+        }
+
+        audioSource.PlayOneShot(clickSound);
+        Debug.Log("Button click sound played!");
     }
 }
