@@ -38,7 +38,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("Player hit by asteroid!");
+            Destroy(gameObject);
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+            }
         }
     }
 
