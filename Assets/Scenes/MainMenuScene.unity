@@ -1195,8 +1195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   buttonClickSound: {fileID: 8300000, guid: e82d1d6b0e54054459b94f8779244caa, type: 3}
-  shootSound: {fileID: 0}
-  explosionSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 711f74c0e3635a140a953b872712b88c, type: 3}
+  explosionSound: {fileID: 8300000, guid: 5a45d1f590499c54592cf5fec70509c4, type: 3}
   mainMenuMusic: {fileID: 8300000, guid: 1d1b07dafadd4264288e85d00218bf9b, type: 3}
   gameplayMusic: {fileID: 8300000, guid: 6e45f9232a102174b909c6ea9a2ef026, type: 3}
   gameOverMusic: {fileID: 0}
