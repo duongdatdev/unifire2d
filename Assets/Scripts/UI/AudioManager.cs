@@ -8,6 +8,10 @@ public class AudioManager : MonoBehaviour
     [Header("UI Sounds")]
     [SerializeField] private AudioClip buttonClickSound;
 
+    [Header("Gameplay Sounds")]
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip explosionSound;
+    
     [Header("Background Music")]
     [SerializeField] private AudioClip mainMenuMusic;
     [SerializeField] private AudioClip gameplayMusic;
@@ -43,7 +47,7 @@ public class AudioManager : MonoBehaviour
         // Listen for scene changes
         SceneManager.activeSceneChanged += OnSceneChanged;
 
-        // Play the initial music (useful when starting from Main Menu)
+        // Play the initial music
         ChangeMusicByScene(SceneManager.GetActiveScene().name);
     }
 
@@ -61,38 +65,42 @@ public class AudioManager : MonoBehaviour
     private void ChangeMusicByScene(string sceneName)
     {
         AudioClip newClip = null;
+        float newVolume = 1f;
 
         switch (sceneName)
         {
             case "MainMenuScene":
                 newClip = mainMenuMusic;
+                newVolume = 1f;
                 break;
 
             case "GameplayScene":
                 newClip = gameplayMusic;
+                newVolume = 0.6f;
                 break;
 
             case "GameOverScene":
                 newClip = gameOverMusic;
+                newVolume = 0.8f;
                 break;
 
             default:
-                // fallback music (optional)
+                // fallback music if scene is unrecognized
                 newClip = mainMenuMusic;
                 break;
         }
 
         if (newClip != null && musicSource.clip != newClip)
         {
-            PlayMusic(newClip);
+            PlayMusic(newClip, newVolume);
         }
     }
 
-    private void PlayMusic(AudioClip clip)
+    private void PlayMusic(AudioClip clip, float targetVolume)
     {
         musicSource.Stop();
         musicSource.clip = clip;
-        musicSource.volume = 1f;
+        musicSource.volume = targetVolume;
         musicSource.Play();
     }
 
@@ -105,6 +113,28 @@ public class AudioManager : MonoBehaviour
         }
 
         sfxSource.PlayOneShot(buttonClickSound);
+    }
+    
+    public void PlayShootSound()
+    {
+        if (shootSound == null)
+        {
+            Debug.LogWarning("Shoot sound not assigned!");
+            return;
+        }
+
+        sfxSource.PlayOneShot(shootSound, 0.6f);
+    }
+    
+    public void PlayExplosionSound()
+    {
+        if (explosionSound == null)
+        {
+            Debug.LogWarning("Explosion sound not assigned!");
+            return;
+        }
+
+        sfxSource.PlayOneShot(explosionSound);
     }
 
     // Optional: fade transition between songs

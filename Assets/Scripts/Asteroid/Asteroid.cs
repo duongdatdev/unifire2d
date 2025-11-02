@@ -53,6 +53,11 @@ public class Asteroid : MonoBehaviour
                 GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
                 explosion.transform.localScale = transform.localScale;
             }
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayExplosionSound();
+            }
             
             Destroy(other.gameObject);
             Destroy(gameObject);

@@ -104,6 +104,11 @@ public class PlayerController : MonoBehaviour
         if (bulletPrefab && firePoint)
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayShootSound();
+            }
         }
     }
 
