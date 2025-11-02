@@ -5,11 +5,17 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI finalScoreText;
+    public TextMeshProUGUI highScoreText;
 
     private void Start()
     {
-        // Display final score from GameManager
-        finalScoreText.text = "Final Score: " + GameManager.Instance.score.ToString();
+        // Show the final score from the GameManager
+        if (finalScoreText != null)
+            finalScoreText.text = "Score: " + GameManager.Instance.score.ToString();
+
+        // Show the current high score
+        if (highScoreText != null)
+            highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     public void RetryGame()

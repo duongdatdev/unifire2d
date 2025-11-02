@@ -49,7 +49,7 @@ public class Asteroid : MonoBehaviour
         {
             if (explosionEffect != null)
             {
-                // Khởi tạo hiệu ứng tại đúng vị trí, hướng và tỉ lệ của asteroid
+                // Instantiate explosion effect at asteroid position
                 GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
                 explosion.transform.localScale = transform.localScale;
             }
