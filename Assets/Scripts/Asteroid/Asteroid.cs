@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public float speed = 2f;             // Movement speed
-    private Vector2 moveDirection;       // Fixed direction toward the player
+    // Movement speed
+    public float speed = 2f;   
+    // Fixed direction toward the player
+    private Vector2 moveDirection;      
+    // Explosion effect prefab
+    [SerializeField]
+    private GameObject explosionEffect;
 
     void Start()
     {
@@ -42,6 +47,13 @@ public class Asteroid : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
+            if (explosionEffect != null)
+            {
+                // Khởi tạo hiệu ứng tại đúng vị trí, hướng và tỉ lệ của asteroid
+                GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
+                explosion.transform.localScale = transform.localScale;
+            }
+            
             Destroy(other.gameObject);
             Destroy(gameObject);
             

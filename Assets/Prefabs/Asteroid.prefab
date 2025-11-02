@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   speed: 2
+  explosionEffect: {fileID: 93498046464944027, guid: 94d452bc3004a294cbf27cd18e4c09aa, type: 3}
 --- !u!60 &8432379472610458216
 PolygonCollider2D:
   m_ObjectHideFlags: 0
