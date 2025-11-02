@@ -1194,8 +1194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084bd479e56f23d49a3d8df4b21a7980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  backgroundMusic: {fileID: 8300000, guid: 1d1b07dafadd4264288e85d00218bf9b, type: 3}
   buttonClickSound: {fileID: 8300000, guid: e82d1d6b0e54054459b94f8779244caa, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 1d1b07dafadd4264288e85d00218bf9b, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 6e45f9232a102174b909c6ea9a2ef026, type: 3}
+  gameOverMusic: {fileID: 0}
 --- !u!82 &852068939
 AudioSource:
   m_ObjectHideFlags: 0
