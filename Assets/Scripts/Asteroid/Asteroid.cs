@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Asteroid : MonoBehaviour
 {
@@ -9,9 +10,18 @@ public class Asteroid : MonoBehaviour
     // Explosion effect prefab
     [SerializeField]
     private GameObject explosionEffect;
+    
+    [Header("Health Settings")]
+    public int maxHealth = 3;
+    private int _currentHealth;
+    
+    [Header("Health Bar")]
+    public Image healthBarFill;
+    public Canvas healthCanvas;
 
     void Start()
     {
+        _currentHealth = maxHealth;
         // Find player (make sure player has the tag "Player")
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
@@ -47,26 +57,8 @@ public class Asteroid : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            if (explosionEffect != null)
-            {
-                // Instantiate explosion effect at asteroid position
-                GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
-                explosion.transform.localScale = transform.localScale;
-            }
-
-            if (AudioManager.instance != null)
-            {
-                AudioManager.instance.PlayExplosionSound();
-            }
-            
             Destroy(other.gameObject);
-            Destroy(gameObject);
-            
-            // Increase score via GameManager
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.AddScore(10);
-            }
+            TakeDamage(1);
         }
         else if (other.CompareTag("Player"))
         {
@@ -76,14 +68,39 @@ public class Asteroid : MonoBehaviour
                 GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
                 explosion.transform.localScale = transform.localScale;
             }
-
-            if (AudioManager.instance != null)
-            {
-                // AudioManager.instance.PlayExplosionSound();
-            }
-
             Destroy(gameObject);
         }
+    }
+    
+    // Reduce asteroid health
+    private void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+
+        // Update health bar fill
+        if (healthBarFill != null)
+            healthBarFill.fillAmount = (float)_currentHealth / maxHealth;
+
+        // Destroy asteroid if health is 0
+        if (_currentHealth <= 0)
+        {
+            Explode();
+            if (GameManager.Instance != null)
+                GameManager.Instance.AddScore(10);
+            Destroy(gameObject);
+        }
+    }
+    
+    private void Explode()
+    {
+        if (explosionEffect != null)
+        {
+            GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
+            explosion.transform.localScale = transform.localScale;
+        }
+
+        if (AudioManager.instance != null)
+            AudioManager.instance.PlayExplosionSound();
     }
 
     void OnBecameInvisible()

@@ -25,7 +25,6 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Asteroid"))
         {
-            Destroy(other.gameObject);
             Destroy(gameObject);
         }
     }

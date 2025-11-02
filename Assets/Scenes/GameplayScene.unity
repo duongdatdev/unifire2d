@@ -11318,7 +11318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsteroidSpawner
   asteroidPrefab: {fileID: 1190602980101603197, guid: 6233cd72aef3a194fa6c25e8a187d047, type: 3}
-  spawnRate: 2
+  spawnRate: 1
   maxAsteroids: 20
   offsetRatio: 0.3
 --- !u!4 &2094777998
