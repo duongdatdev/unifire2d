@@ -1,46 +1,49 @@
 fileFormatVersion: 2
-guid: d2a9f479c9d3a744abdf0f0a5968c659
+guid: b3028087613170747b961d644d9746b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5186741629839597557
-    second: Main Ship - Engines - Burst Engine - Spritesheet_0
+      213: 1271113504822893776
+    second: Main Ship - Engines - Base Engine - Spritesheet_0
   - first:
-      213: -795807889479606599
-    second: Main Ship - Engines - Burst Engine - Spritesheet_1
+      213: -6640372162995760384
+    second: Main Ship - Engines - Base Engine - Spritesheet_1
   - first:
-      213: -9037470930521813108
-    second: Main Ship - Engines - Burst Engine - Spritesheet_2
+      213: 6240578527328996810
+    second: Main Ship - Engines - Base Engine - Spritesheet_2
   - first:
-      213: 1102827649913007989
-    second: Main Ship - Engines - Burst Engine - Spritesheet_3
+      213: -2798598458224673691
+    second: Main Ship - Engines - Base Engine - Spritesheet_3
   - first:
-      213: 4286227007918630193
-    second: Main Ship - Engines - Burst Engine - Spritesheet_4
+      213: -4849164567197781785
+    second: Main Ship - Engines - Base Engine - Spritesheet_4
   - first:
-      213: 503035401987542015
-    second: Main Ship - Engines - Burst Engine - Spritesheet_5
+      213: -4535602452247532629
+    second: Main Ship - Engines - Base Engine - Spritesheet_5
   - first:
-      213: -1331973298183711041
-    second: Main Ship - Engines - Burst Engine - Spritesheet_6
+      213: 1718605459228644740
+    second: Main Ship - Engines - Base Engine - Spritesheet_6
   - first:
-      213: 7025964692657860342
-    second: Main Ship - Engines - Burst Engine - Spritesheet_7
+      213: -8035306458661668288
+    second: Main Ship - Engines - Base Engine - Spritesheet_7
   - first:
-      213: -3316398468130613109
-    second: Main Ship - Engines - Burst Engine - Spritesheet_8
+      213: -5237410542005820922
+    second: Main Ship - Engines - Base Engine - Spritesheet_8
   - first:
-      213: 16559960220759080
-    second: Main Ship - Engines - Burst Engine - Spritesheet_9
+      213: 1013854812098843493
+    second: Main Ship - Engines - Base Engine - Spritesheet_9
   - first:
-      213: -8450154748364208917
-    second: Main Ship - Engines - Burst Engine - Spritesheet_10
+      213: -4001340633505760723
+    second: Main Ship - Engines - Base Engine - Spritesheet_10
   - first:
-      213: 6828155639790832243
-    second: Main Ship - Engines - Burst Engine - Spritesheet_11
+      213: 5818972352237717977
+    second: Main Ship - Engines - Base Engine - Spritesheet_11
   - first:
-      213: -7917221286673571651
-    second: Main Ship - Engines - Burst Engine - Spritesheet_12
+      213: -1845115648264000481
+    second: Main Ship - Engines - Base Engine - Spritesheet_12
+  - first:
+      213: 2486334247399911738
+    second: Main Ship - Engines - Base Engine - Spritesheet_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -136,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_0
+      name: Main Ship - Engines - Base Engine - Spritesheet_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 55
-        width: 12
-        height: 16
+        x: 13
+        y: 59
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b002eabd7fdf408b0800000000000000
-      internalID: -5186741629839597557
+      spriteID: 0dc9b2c7ff6e3a110800000000000000
+      internalID: 1271113504822893776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_1
+      name: Main Ship - Engines - Base Engine - Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 66
-        y: 55
-        width: 12
-        height: 16
+        x: 28
+        y: 59
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +176,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9be5d1ed0f8b4f4f0800000000000000
-      internalID: -795807889479606599
+      spriteID: 003de3033b8a8d3a0800000000000000
+      internalID: -6640372162995760384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_2
+      name: Main Ship - Engines - Base Engine - Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 55
-        width: 12
-        height: 16
+        x: 61
+        y: 58
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +198,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8f045e3214749280800000000000000
-      internalID: -9037470930521813108
+      spriteID: acd006a4b1dfa9650800000000000000
+      internalID: 6240578527328996810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_3
+      name: Main Ship - Engines - Base Engine - Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 162
-        y: 55
-        width: 12
-        height: 16
+        x: 76
+        y: 58
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +220,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57f2b8197e70e4f00800000000000000
-      internalID: 1102827649913007989
+      spriteID: 56cff84a7816929d0800000000000000
+      internalID: -2798598458224673691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_4
+      name: Main Ship - Engines - Base Engine - Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 210
-        y: 55
-        width: 12
-        height: 16
+        x: 109
+        y: 59
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 135eca911ccbb7b30800000000000000
-      internalID: 4286227007918630193
+      spriteID: 7e0f3c2a48e44bcb0800000000000000
+      internalID: -4849164567197781785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_5
+      name: Main Ship - Engines - Base Engine - Spritesheet_5
       rect:
         serializedVersion: 2
-        x: 258
-        y: 55
-        width: 12
-        height: 16
+        x: 124
+        y: 59
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +264,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffbc9ec68042bf600800000000000000
-      internalID: 503035401987542015
+      spriteID: bab256fa99d4e01c0800000000000000
+      internalID: -4535602452247532629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_6
+      name: Main Ship - Engines - Base Engine - Spritesheet_6
       rect:
         serializedVersion: 2
-        x: 306
-        y: 55
-        width: 12
-        height: 16
+        x: 13
+        y: 11
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,20 +286,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb65477a751e38de0800000000000000
-      internalID: -1331973298183711041
+      spriteID: 485de524f86b9d710800000000000000
+      internalID: 1718605459228644740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_7
+      name: Main Ship - Engines - Base Engine - Spritesheet_7
       rect:
         serializedVersion: 2
-        x: 18
+        x: 28
+        y: 11
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ab116495bdc7090800000000000000
+      internalID: -8035306458661668288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Ship - Engines - Base Engine - Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 8
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6026bdc6cdaf057b0800000000000000
+      internalID: -5237410542005820922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Ship - Engines - Base Engine - Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 8
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563d8f8749fe11e00800000000000000
+      internalID: 1013854812098843493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Ship - Engines - Base Engine - Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 109
         y: 7
-        width: 12
-        height: 16
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +374,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6feee4ea9ad318160800000000000000
-      internalID: 7025964692657860342
+      spriteID: d2a7d82d4e16878c0800000000000000
+      internalID: -4001340633505760723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_8
+      name: Main Ship - Engines - Base Engine - Spritesheet_11
       rect:
         serializedVersion: 2
-        x: 66
+        x: 124
         y: 7
-        width: 12
-        height: 15
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +396,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b88dc6d0a29c9f1d0800000000000000
-      internalID: -3316398468130613109
+      spriteID: 9d9c2fc268421c050800000000000000
+      internalID: 5818972352237717977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_9
+      name: Main Ship - Engines - Base Engine - Spritesheet_12
       rect:
         serializedVersion: 2
-        x: 114
-        y: 7
-        width: 12
-        height: 14
+        x: 157
+        y: 10
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +418,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 824f3723235da3000800000000000000
-      internalID: 16559960220759080
+      spriteID: f1ca5bff715d466e0800000000000000
+      internalID: -1845115648264000481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_10
+      name: Main Ship - Engines - Base Engine - Spritesheet_13
       rect:
         serializedVersion: 2
-        x: 162
-        y: 7
-        width: 12
-        height: 13
+        x: 172
+        y: 10
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,52 +440,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be4cba6f6050bba80800000000000000
-      internalID: -8450154748364208917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 7
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37a00d4906b72ce50800000000000000
-      internalID: 6828155639790832243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main Ship - Engines - Burst Engine - Spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 7
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db029afdf21602290800000000000000
-      internalID: -7917221286673571651
+      spriteID: a31f82923db318220800000000000000
+      internalID: 2486334247399911738
       vertices: []
       indices: 
       edges: []
@@ -435,19 +460,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Main Ship - Engines - Burst Engine - Spritesheet_0: -5186741629839597557
-      Main Ship - Engines - Burst Engine - Spritesheet_1: -795807889479606599
-      Main Ship - Engines - Burst Engine - Spritesheet_10: -8450154748364208917
-      Main Ship - Engines - Burst Engine - Spritesheet_11: 6828155639790832243
-      Main Ship - Engines - Burst Engine - Spritesheet_12: -7917221286673571651
-      Main Ship - Engines - Burst Engine - Spritesheet_2: -9037470930521813108
-      Main Ship - Engines - Burst Engine - Spritesheet_3: 1102827649913007989
-      Main Ship - Engines - Burst Engine - Spritesheet_4: 4286227007918630193
-      Main Ship - Engines - Burst Engine - Spritesheet_5: 503035401987542015
-      Main Ship - Engines - Burst Engine - Spritesheet_6: -1331973298183711041
-      Main Ship - Engines - Burst Engine - Spritesheet_7: 7025964692657860342
-      Main Ship - Engines - Burst Engine - Spritesheet_8: -3316398468130613109
-      Main Ship - Engines - Burst Engine - Spritesheet_9: 16559960220759080
+      Main Ship - Engines - Base Engine - Spritesheet_0: 1271113504822893776
+      Main Ship - Engines - Base Engine - Spritesheet_1: -6640372162995760384
+      Main Ship - Engines - Base Engine - Spritesheet_10: -4001340633505760723
+      Main Ship - Engines - Base Engine - Spritesheet_11: 5818972352237717977
+      Main Ship - Engines - Base Engine - Spritesheet_12: -1845115648264000481
+      Main Ship - Engines - Base Engine - Spritesheet_13: 2486334247399911738
+      Main Ship - Engines - Base Engine - Spritesheet_2: 6240578527328996810
+      Main Ship - Engines - Base Engine - Spritesheet_3: -2798598458224673691
+      Main Ship - Engines - Base Engine - Spritesheet_4: -4849164567197781785
+      Main Ship - Engines - Base Engine - Spritesheet_5: -4535602452247532629
+      Main Ship - Engines - Base Engine - Spritesheet_6: 1718605459228644740
+      Main Ship - Engines - Base Engine - Spritesheet_7: -8035306458661668288
+      Main Ship - Engines - Base Engine - Spritesheet_8: -5237410542005820922
+      Main Ship - Engines - Base Engine - Spritesheet_9: 1013854812098843493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

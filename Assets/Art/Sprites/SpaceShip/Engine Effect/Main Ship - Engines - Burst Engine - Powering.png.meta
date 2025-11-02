@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 86fd77a6ee93f7447b25458bc61b2942
+guid: ee15bc346d2ee274bb289b3a96f53489
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9221159061991863010
-    second: Main Ship - Engines - Big Pulse Engine - Powering_0
+      213: 7446537014931516024
+    second: Main Ship - Engines - Burst Engine - Powering_0
   - first:
-      213: 5469186229087416257
-    second: Main Ship - Engines - Big Pulse Engine - Powering_1
+      213: 7753904914036356148
+    second: Main Ship - Engines - Burst Engine - Powering_1
   - first:
-      213: 8984648045043596711
-    second: Main Ship - Engines - Big Pulse Engine - Powering_2
+      213: -9115631305814461377
+    second: Main Ship - Engines - Burst Engine - Powering_2
   - first:
-      213: -6099170209708202703
-    second: Main Ship - Engines - Big Pulse Engine - Powering_3
+      213: -5713399940096785578
+    second: Main Ship - Engines - Burst Engine - Powering_3
+  - first:
+      213: -4811300140507816980
+    second: Main Ship - Engines - Burst Engine - Powering_4
+  - first:
+      213: -1378071314483872847
+    second: Main Ship - Engines - Burst Engine - Powering_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main Ship - Engines - Big Pulse Engine - Powering_0
+      name: Main Ship - Engines - Burst Engine - Powering_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 2
-        width: 18
-        height: 13
+        x: 18
+        y: 7
+        width: 12
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e23663af4328ff70800000000000000
-      internalID: 9221159061991863010
+      spriteID: 87a6acd26f9675760800000000000000
+      internalID: 7446537014931516024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Big Pulse Engine - Powering_1
+      name: Main Ship - Engines - Burst Engine - Powering_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 2
-        width: 18
-        height: 13
+        x: 66
+        y: 7
+        width: 12
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cfa63bf5e376eb40800000000000000
-      internalID: 5469186229087416257
+      spriteID: 434fa47ff676b9b60800000000000000
+      internalID: 7753904914036356148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Big Pulse Engine - Powering_2
+      name: Main Ship - Engines - Burst Engine - Powering_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 2
-        width: 18
-        height: 13
+        x: 114
+        y: 7
+        width: 12
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,19 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ad3bb45bc1efac70800000000000000
-      internalID: 8984648045043596711
+      spriteID: f34bf71cf95ce7180800000000000000
+      internalID: -9115631305814461377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Engines - Big Pulse Engine - Powering_3
+      name: Main Ship - Engines - Burst Engine - Powering_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 2
-        width: 18
+        x: 162
+        y: 7
+        width: 12
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -190,8 +196,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 135a2b152056b5ba0800000000000000
-      internalID: -6099170209708202703
+      spriteID: 6530bce760de5b0b0800000000000000
+      internalID: -5713399940096785578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Ship - Engines - Burst Engine - Powering_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 7
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb9e397304da3db0800000000000000
+      internalID: -4811300140507816980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Main Ship - Engines - Burst Engine - Powering_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 7
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb7809d07b10ece0800000000000000
+      internalID: -1378071314483872847
       vertices: []
       indices: 
       edges: []
@@ -210,10 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Main Ship - Engines - Big Pulse Engine - Powering_0: 9221159061991863010
-      Main Ship - Engines - Big Pulse Engine - Powering_1: 5469186229087416257
-      Main Ship - Engines - Big Pulse Engine - Powering_2: 8984648045043596711
-      Main Ship - Engines - Big Pulse Engine - Powering_3: -6099170209708202703
+      Main Ship - Engines - Burst Engine - Powering_0: 7446537014931516024
+      Main Ship - Engines - Burst Engine - Powering_1: 7753904914036356148
+      Main Ship - Engines - Burst Engine - Powering_2: -9115631305814461377
+      Main Ship - Engines - Burst Engine - Powering_3: -5713399940096785578
+      Main Ship - Engines - Burst Engine - Powering_4: -4811300140507816980
+      Main Ship - Engines - Burst Engine - Powering_5: -1378071314483872847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
