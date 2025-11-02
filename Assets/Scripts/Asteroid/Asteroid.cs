@@ -68,6 +68,22 @@ public class Asteroid : MonoBehaviour
                 GameManager.Instance.AddScore(10);
             }
         }
+        else if (other.CompareTag("Player"))
+        {
+            if (explosionEffect != null)
+            {
+                // Instantiate explosion effect at asteroid position
+                GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
+                explosion.transform.localScale = transform.localScale;
+            }
+
+            if (AudioManager.instance != null)
+            {
+                // AudioManager.instance.PlayExplosionSound();
+            }
+
+            Destroy(gameObject);
+        }
     }
 
     void OnBecameInvisible()

@@ -20,6 +20,8 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryGame()
     {
+        GameManager.Instance.ResetLives();
+        GameManager.Instance.ResetScore();
         SceneManager.LoadScene("GamePlayScene");
     }
 

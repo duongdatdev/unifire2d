@@ -9,11 +9,18 @@ public class GameManager : MonoBehaviour
     [Header("Score UI")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    
+    [Header("Life UI")]
+    public Transform heartsContainer;
+    
+    [Header("Player Stats")]
+    public int maxLives = 3;
+    private int _currentLives;
 
     [Header("Score Data")]
     public int score = 0;
     private int highScore = 0;
-
+    
     private void Awake()
     {
         // Ensure there is only one instance of GameManager
@@ -43,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _currentLives = maxLives;
+        UpdateHeartsUI();
         UpdateScoreUI();
     }
 
@@ -80,7 +89,43 @@ public class GameManager : MonoBehaviour
         if (highScoreText != null)
             highScoreText.text = "High Score: " + highScore;
     }
+    
+    public void LoseLife()
+    {
+        _currentLives--;
+        UpdateHeartsUI();
 
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayLoseLifeSound();
+        }
+        
+        if (_currentLives <= 0)
+        {
+            AudioManager.instance.PlayLoseGameSound();
+            GameOver();
+        }
+    }
+    
+    public void UpdateHeartsUI()
+    {
+        if (heartsContainer == null)
+        {
+            return;
+        }
+        
+        for (int i = 0; i < heartsContainer.childCount; i++)
+        {
+            heartsContainer.GetChild(i).gameObject.SetActive(i < _currentLives);
+        }
+    }
+    
+    public void ResetLives()
+    {
+        _currentLives = maxLives;
+        UpdateHeartsUI();
+    }
+    
     // Called when the game ends
     public void GameOver()
     {

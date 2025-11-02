@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [Header("Gameplay Sounds")]
     [SerializeField] private AudioClip shootSound;
     [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private AudioClip loseLifeSound;
+    [SerializeField] private AudioClip loseGameSound;
     
     [Header("Background Music")]
     [SerializeField] private AudioClip mainMenuMusic;
@@ -135,6 +137,28 @@ public class AudioManager : MonoBehaviour
         }
 
         sfxSource.PlayOneShot(explosionSound);
+    }
+    
+    public void PlayLoseLifeSound()
+    {
+        if (loseLifeSound == null)
+        {
+            Debug.LogWarning("Lose life sound not assigned!");
+            return;
+        }
+
+        sfxSource.PlayOneShot(loseLifeSound);
+    }
+    
+    public void PlayLoseGameSound()
+    {
+        if (loseGameSound == null)
+        {
+            Debug.LogWarning("Lose game sound not assigned!");
+            return;
+        }
+
+        sfxSource.PlayOneShot(loseGameSound);
     }
 
     // Optional: fade transition between songs

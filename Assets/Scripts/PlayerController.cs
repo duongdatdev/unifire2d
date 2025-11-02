@@ -45,10 +45,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Destroy(gameObject);
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.GameOver();
+                GameManager.Instance.LoseLife();
             }
         }
     }
