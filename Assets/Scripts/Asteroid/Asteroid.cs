@@ -3,58 +3,82 @@ using UnityEngine.UI;
 
 public class Asteroid : MonoBehaviour
 {
-    // Movement speed
-    public float speed = 2f;   
-    // Fixed direction toward the player
-    private Vector2 moveDirection;      
-    // Explosion effect prefab
-    [SerializeField]
-    private GameObject explosionEffect;
-    
-    [Header("Health Settings")]
-    public int maxHealth = 3;
-    private int _currentHealth;
-    
-    [Header("Health Bar")]
-    public Image healthBarFill;
-    public Canvas healthCanvas;
+    [Header("Movement Settings")]
+    [SerializeField] private float baseSpeed = 2f;
+    [SerializeField] private float randomSpeedRange = 1f;
 
-    void Start()
+    [Header("Health Settings")]
+    [SerializeField] private int maxHealth = 3;
+    private int _currentHealth;
+
+    [Header("Visual & Effects")]
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private Canvas healthCanvas;
+    [SerializeField] private Image healthBarFill;
+
+    private Rigidbody2D _rb;
+    private Vector2 _moveDirection;
+    private bool _isDead;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
     {
         _currentHealth = maxHealth;
-        // Find player (make sure player has the tag "Player")
+        InitializeMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+        UpdateHealthBarRotation();
+    }
+
+    // Initialize asteroid direction and randomized speed
+    private void InitializeMovement()
+    {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
-            // Get direction from asteroid to player
             Vector2 target = player.transform.position;
-            moveDirection = (target - (Vector2)transform.position).normalized;
-
-            // Slight random rotation for natural motion
-            moveDirection = Quaternion.Euler(0, 0, Random.Range(-10f, 10f)) * moveDirection;
+            _moveDirection = (target - (Vector2)transform.position).normalized;
+            _moveDirection = Quaternion.Euler(0, 0, Random.Range(-10f, 10f)) * _moveDirection;
         }
         else
         {
-            // Default direction to center if player not found
-            moveDirection = (Vector2.zero - (Vector2)transform.position).normalized;
+            _moveDirection = (Vector2.zero - (Vector2)transform.position).normalized;
         }
 
-        // Randomize speed slightly
-        speed = Random.Range(1.5f, 3.5f);
+        float finalSpeed = baseSpeed + Random.Range(-randomSpeedRange, randomSpeedRange);
+        _rb.linearVelocity = _moveDirection * finalSpeed;
     }
 
-    void Update()
+    // Move asteroid using Rigidbody velocity
+    private void Move()
     {
-        // Move asteroid along the fixed direction
-        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+        if (_rb == null || _isDead) return;
 
-        // Optional: rotate asteroid for visual effect
-        transform.Rotate(0, 0, 30 * Time.deltaTime);
+        // Optional spin for realism
+        _rb.MoveRotation(_rb.rotation + 30f * Time.fixedDeltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    // Keep health bar facing up (not rotating with asteroid)
+    private void UpdateHealthBarRotation()
     {
+        if (healthCanvas != null)
+        {
+            healthCanvas.transform.rotation = Quaternion.identity;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_isDead) return;
+
         if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
@@ -62,35 +86,32 @@ public class Asteroid : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            if (explosionEffect != null)
-            {
-                // Instantiate explosion effect at asteroid position
-                GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
-                explosion.transform.localScale = transform.localScale;
-            }
+            Explode();
             Destroy(gameObject);
         }
     }
-    
-    // Reduce asteroid health
+
+    // Apply damage and update health bar
     private void TakeDamage(int damage)
     {
         _currentHealth -= damage;
 
-        // Update health bar fill
         if (healthBarFill != null)
             healthBarFill.fillAmount = (float)_currentHealth / maxHealth;
 
-        // Destroy asteroid if health is 0
         if (_currentHealth <= 0)
         {
+            _isDead = true;
             Explode();
+
             if (GameManager.Instance != null)
                 GameManager.Instance.AddScore(10);
+
             Destroy(gameObject);
         }
     }
-    
+
+    // Spawn explosion effect and play sound
     private void Explode()
     {
         if (explosionEffect != null)
@@ -103,7 +124,7 @@ public class Asteroid : MonoBehaviour
             AudioManager.instance.PlayExplosionSound();
     }
 
-    void OnBecameInvisible()
+    private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }

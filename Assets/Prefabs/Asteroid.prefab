@@ -119,7 +119,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8519506642273211308
 MonoBehaviour:
@@ -133,11 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc04c912eef0f442bdafbfdbb69dfc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
-  speed: 2
-  explosionEffect: {fileID: 93498046464944027, guid: 94d452bc3004a294cbf27cd18e4c09aa, type: 3}
+  baseSpeed: 2
+  randomSpeedRange: 1
   maxHealth: 3
-  healthBarFill: {fileID: 5061888294058142619}
+  explosionEffect: {fileID: 93498046464944027, guid: 94d452bc3004a294cbf27cd18e4c09aa, type: 3}
   healthCanvas: {fileID: 6942239981453281365}
+  healthBarFill: {fileID: 5061888294058142619}
 --- !u!60 &8432379472610458216
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c2bec604461d2e24e9c989e0c527d666, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
