@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
         ChangeMusicByScene(newScene.name);
     }
 
-    // 🎵 Change background music depending on scene name
+    // Change background music depending on scene name
     private void ChangeMusicByScene(string sceneName)
     {
         AudioClip newClip = null;
