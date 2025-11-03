@@ -34,7 +34,7 @@ public class Asteroid : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        UpdateHealthBarRotation();
+        // UpdateHealthBarRotation();
     }
 
     // Initialize asteroid direction and randomized speed

@@ -7,13 +7,13 @@ public class AsteroidSpawner : MonoBehaviour
     public int maxAsteroids = 10;
 
     [Header("Random size & stats")] [Tooltip("Min and Max scale for spawned asteroids")] [SerializeField]
-    private Vector2 scaleRange = new Vector2(1f, 3f);
+    private Vector2 scaleRange = new Vector2(0.7f, 3f);
 
     [Tooltip("Speed multiplier based on size (smaller = faster)")] [SerializeField]
-    private float sizeSpeedFactor = 0.8f;
+    private float sizeSpeedFactor = 0.9f;
 
     [Tooltip("Health multiplier (larger = more health)")] [SerializeField]
-    private float sizeHealthFactor = 1.3f;
+    private float sizeHealthFactor = 1f;
 
     [Header("Spawn Offset Settings")]
     [Tooltip("Offset ratio from camera boundary (0.1 = very close, 1.0 = far)")]
@@ -96,18 +96,32 @@ public class AsteroidSpawner : MonoBehaviour
             // Smaller asteroids move faster
             float sizeFactor = Mathf.Lerp(1.2f, 0.6f, (randomScale - scaleRange.x) / (scaleRange.y - scaleRange.x));
             asteroidScript.GetType()
-                .GetField("baseSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                .GetField("baseSpeed",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 ?.SetValue(asteroidScript, (float)(asteroidScript.GetType()
-                    .GetField("baseSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                    .GetField("baseSpeed",
+                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                     ?.GetValue(asteroidScript) ?? 2f) * sizeFactor * sizeSpeedFactor);
 
-            // Larger asteroids have more health
+            // Larger asteroids have more health (adjustable with sizeHealthFactor)
+            int baseHealth = (int)(asteroidScript.GetType()
+                .GetField("maxHealth",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.Public)
+                ?.GetValue(asteroidScript) ?? 3);
+
+            // Map scale (min → max) to HP (1 → 3) and multiply by sizeHealthFactor
+            float t = Mathf.InverseLerp(scaleRange.x, scaleRange.y, randomScale);
+            int adjustedHealth = Mathf.Clamp(
+                Mathf.RoundToInt(Mathf.Lerp(1, 3, t) * sizeHealthFactor),
+                1, Mathf.RoundToInt(3 * sizeHealthFactor)
+            );
+
             asteroidScript.GetType()
-                .GetField("maxHealth", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-                ?.SetValue(asteroidScript, Mathf.RoundToInt(
-                    (int)(asteroidScript.GetType()
-                        .GetField("maxHealth", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
-                        ?.GetValue(asteroidScript) ?? 3) * randomScale * sizeHealthFactor));
+                .GetField("maxHealth",
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance |
+                    System.Reflection.BindingFlags.Public)
+                ?.SetValue(asteroidScript, adjustedHealth);
         }
     }
 }
