@@ -73,17 +73,17 @@ public class AudioManager : MonoBehaviour
         {
             case "MainMenuScene":
                 newClip = mainMenuMusic;
-                newVolume = 1f;
+                newVolume = 2f;
                 break;
 
             case "GameplayScene":
                 newClip = gameplayMusic;
-                newVolume = 0.6f;
+                newVolume = 0.5f;
                 break;
 
             case "GameOverScene":
                 newClip = gameOverMusic;
-                newVolume = 0.8f;
+                newVolume = 0.5f;
                 break;
 
             default:

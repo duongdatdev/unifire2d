@@ -405,7 +405,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2, y: -157}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 168, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350379518
 MonoBehaviour:
@@ -429,9 +429,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.39607844, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.26067996, g: 0.5471698, b: 0.5471698, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -463,6 +463,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 852068938}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayButtonClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &350379519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c897f86c69f0d4842a6a774f46836b80, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -492,7 +504,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 4.2
 --- !u!222 &350379520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -553,7 +565,7 @@ MonoBehaviour:
   loseGameSound: {fileID: 8300000, guid: af29955cf4fb531429adbeb25e842b3e, type: 3}
   mainMenuMusic: {fileID: 8300000, guid: 1d1b07dafadd4264288e85d00218bf9b, type: 3}
   gameplayMusic: {fileID: 8300000, guid: 6e45f9232a102174b909c6ea9a2ef026, type: 3}
-  gameOverMusic: {fileID: 0}
+  gameOverMusic: {fileID: 8300000, guid: e1449614c7a9bab4ab412d569b28c83d, type: 3}
 --- !u!82 &852068939
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1670,8 +1682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -186.6, y: 3.3}
-  m_SizeDelta: {x: 200, y: 130.03}
+  m_AnchoredPosition: {x: -186.6, y: 77.2}
+  m_SizeDelta: {x: 553.84, y: 130.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1558020623
 MonoBehaviour:
@@ -1693,14 +1705,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use arrow keys to move the ship.
-
-    Press Space to shoot.
-
-    Avoid
-    asteroids and collect stars.
-
-'
+  m_text: "S\u1EB5n s\xE0ng chi\u1EBFn \u0111\u1EA5u!\n - D\xF9ng chu\u1ED9t \u0111\u1EC3
+    n\xE9 tr\xE1nh v\xE0 nh\u1EAFm m\u1EE5c ti\xEAu.\n - T\xE0u c\u1EE7a b\u1EA1n
+    \u0111\u01B0\u1EE3c trang b\u1ECB ch\u1EBF \u0111\u1ED9 b\u1EAFn t\u1EF1 \u0111\u1ED9ng.\n
+    - M\u1ED7i thi\xEAn th\u1EA1ch b\u1ECB ph\xE1 h\u1EE7y s\u1EBD cho b\u1EA1n 10
+    \u0111i\u1EC3m.\nC\u1EA3nh b\xE1o: M\u1ECDi th\u1EE9 s\u1EBD tr\u1EDF n\xEAn
+    nhanh h\u01A1n! T\u1ED1c \u0111\u1ED9 thi\xEAn th\u1EA1ch t\u0103ng 10% m\u1ED7i
+    10 gi\xE2y. C\u1ED1 g\u1EAFng  tr\u1EE5 l\xE2u nh\u1EA5t c\xF3 th\u1EC3!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6841,8 +6852,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

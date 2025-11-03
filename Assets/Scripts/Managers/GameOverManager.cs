@@ -22,11 +22,13 @@ public class GameOverManager : MonoBehaviour
     {
         GameManager.Instance.ResetLives();
         GameManager.Instance.ResetScore();
+        AudioManager.instance.PlayButtonClickSound();
         SceneManager.LoadScene("GamePlayScene");
     }
 
     public void BackToMenu()
     {
+        AudioManager.instance.PlayButtonClickSound();
         SceneManager.LoadScene("MainMenuScene");
     }
 }
