@@ -11,6 +11,13 @@ public class AsteroidSpawner : MonoBehaviour
 
     [Tooltip("Speed multiplier based on size (smaller = faster)")] [SerializeField]
     private float sizeSpeedFactor = 0.9f;
+    
+    [Header("Difficulty Settings")]
+    [SerializeField] private float difficultyIncreaseInterval = 10f; // tăng mỗi 10s
+    [SerializeField] private float speedIncreaseRate = 0.1f; // mỗi lần tăng, tốc độ +10%
+    private float nextDifficultyTime;
+    private float globalSpeedMultiplier = 1f;
+
 
     [Tooltip("Health multiplier (larger = more health)")] [SerializeField]
     private float sizeHealthFactor = 1f;
@@ -27,12 +34,18 @@ public class AsteroidSpawner : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        nextDifficultyTime = Time.time + difficultyIncreaseInterval;
     }
 
     void Update()
     {
         if (Time.time >= nextSpawnTime)
         {
+            if (Time.time >= nextDifficultyTime)
+            {
+                globalSpeedMultiplier += speedIncreaseRate;
+                nextDifficultyTime = Time.time + difficultyIncreaseInterval;
+            }
             SpawnAsteroid();
             nextSpawnTime = Time.time + spawnRate;
         }
@@ -93,15 +106,15 @@ public class AsteroidSpawner : MonoBehaviour
         Asteroid asteroidScript = asteroid.GetComponent<Asteroid>();
         if (asteroidScript != null)
         {
-            // Smaller asteroids move faster
+            // Smaller asteroids move faster, plus global difficulty multiplier
             float sizeFactor = Mathf.Lerp(1.2f, 0.6f, (randomScale - scaleRange.x) / (scaleRange.y - scaleRange.x));
+            float newSpeed = (float)(asteroidScript.GetType()
+                .GetField("baseSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.GetValue(asteroidScript) ?? 2f) * sizeFactor * sizeSpeedFactor * globalSpeedMultiplier;
+
             asteroidScript.GetType()
-                .GetField("baseSpeed",
-                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                ?.SetValue(asteroidScript, (float)(asteroidScript.GetType()
-                    .GetField("baseSpeed",
-                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-                    ?.GetValue(asteroidScript) ?? 2f) * sizeFactor * sizeSpeedFactor);
+                .GetField("baseSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(asteroidScript, newSpeed);
 
             // Larger asteroids have more health (adjustable with sizeHealthFactor)
             int baseHealth = (int)(asteroidScript.GetType()
