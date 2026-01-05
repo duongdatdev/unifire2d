@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Asteroid : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class Asteroid : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _moveDirection;
     private bool _isDead;
+    
+    private Coroutine hideHealthCoroutine;
+
 
     private void Awake()
     {
@@ -27,6 +31,9 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
+        if (healthCanvas != null)
+            healthCanvas.enabled = false;
+
         _currentHealth = maxHealth;
         InitializeMovement();
     }
@@ -94,6 +101,18 @@ public class Asteroid : MonoBehaviour
     // Apply damage and update health bar
     private void TakeDamage(int damage)
     {
+        if (healthCanvas != null)
+        {
+            healthCanvas.enabled = true;
+
+            // Reset hide health coroutine if already running
+            if (hideHealthCoroutine != null)
+                StopCoroutine(hideHealthCoroutine);
+
+            // Hide health bar after delay
+            hideHealthCoroutine = StartCoroutine(HideHealthAfterDelay(2f));
+        }
+        
         _currentHealth -= damage;
 
         if (healthBarFill != null)
@@ -110,6 +129,15 @@ public class Asteroid : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+    private IEnumerator HideHealthAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (healthCanvas != null && !_isDead)
+            healthCanvas.enabled = false;
+    }
+
 
     // Spawn explosion effect and play sound
     private void Explode()

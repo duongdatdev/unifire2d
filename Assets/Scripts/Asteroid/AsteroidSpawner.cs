@@ -13,8 +13,8 @@ public class AsteroidSpawner : MonoBehaviour
     private float sizeSpeedFactor = 0.9f;
     
     [Header("Difficulty Settings")]
-    [SerializeField] private float difficultyIncreaseInterval = 10f; // tăng mỗi 10s
-    [SerializeField] private float speedIncreaseRate = 0.1f; // mỗi lần tăng, tốc độ +10%
+    [SerializeField] private float difficultyIncreaseInterval = 10f; // increase difficulty every 10 seconds
+    [SerializeField] private float speedIncreaseRate = 0.1f; // increase speed by 10% per interval
     private float nextDifficultyTime;
     private float globalSpeedMultiplier = 1f;
 

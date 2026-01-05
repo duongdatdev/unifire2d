@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         // Load saved high score from local storage
         highScore = PlayerPrefs.GetInt("HighScore", 0);
 
+        _currentLives = maxLives;
         // Listen for scene load to update score UI
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -61,9 +63,9 @@ public class GameManager : MonoBehaviour
         scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
         highScoreText = GameObject.Find("HighScoreText")?.GetComponent<TextMeshProUGUI>();
 
-        UpdateScoreUI();
+        StartCoroutine(FindUIElements(scene.name));
     }
-
+    
     // Add points to the current score
     public void AddScore(int amount)
     {
@@ -111,7 +113,12 @@ public class GameManager : MonoBehaviour
     {
         if (heartsContainer == null)
         {
-            return;
+            heartsContainer = GameObject.Find("Hearts")?.transform;
+            if (heartsContainer == null)
+            {
+                return;
+            }
+            Debug.Log("Hearts container not assigned, trying to find it in the scene.");
         }
         
         for (int i = 0; i < heartsContainer.childCount; i++)
@@ -147,5 +154,23 @@ public class GameManager : MonoBehaviour
         highScore = 0;
         PlayerPrefs.Save();
         UpdateScoreUI();
+    }
+    
+    private IEnumerator FindUIElements(string sceneName)
+    {
+        yield return new WaitForSecondsRealtime(0.05f); // đợi 1 frame để UI được sinh ra
+
+        scoreText = GameObject.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+        highScoreText = GameObject.Find("HighScoreText")?.GetComponent<TextMeshProUGUI>();
+        heartsContainer = GameObject.Find("Hearts")?.transform;
+
+        if (sceneName == "GameplayScene")
+        {
+            ResetLives();
+            ResetScore();
+        }
+
+        UpdateScoreUI();
+        UpdateHeartsUI();
     }
 }

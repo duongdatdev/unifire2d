@@ -11,14 +11,15 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public float fireRate = 0.2f;
 
-    [Header("Particle Effects")]
-    public ParticleSystem engineSmoke;
-    
+    [Header("Particle Effects")] public ParticleSystem engineSmoke;
+
     private Animator _animator;
 
     private Camera mainCamera;
     private float nextFireTime = 0f;
     private float currentSpeed = 0f;
+
+    private bool isPaused = false;
 
     void Start()
     {
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPaused) return;
+        
         MoveTowardsMouse();
         AutoFire();
         ClampToScreen();
@@ -69,16 +72,16 @@ public class PlayerController : MonoBehaviour
         // Move player towards mouse position
         float distance = Vector2.Distance(transform.position, mousePos);
 
-        if (distance > stopDistance)
-        {
-            transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
-            currentSpeed = moveSpeed;
-        }
-        else
-        {
-            currentSpeed = 0f;
-        }
-        
+        // if (distance > stopDistance)
+        // {
+        //     transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
+        //     currentSpeed = moveSpeed;
+        // }
+        // else
+        // {
+        //     currentSpeed = 0f;
+        // }
+
         if (distance > stopDistance)
         {
             transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
@@ -126,6 +129,21 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetFloat("Speed", currentSpeed);
         }
+    }
+
+    private void HandlePause() => isPaused = true;
+    private void HandleResume() => isPaused = false;
+    
+    private void OnEnable()
+    {
+        PauseMenu.OnGamePaused += HandlePause;
+        PauseMenu.OnGameResumed += HandleResume;
+    }
+
+    private void OnDisable()
+    {
+        PauseMenu.OnGamePaused -= HandlePause;
+        PauseMenu.OnGameResumed -= HandleResume;
     }
 
     void ClampToScreen()
